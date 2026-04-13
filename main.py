@@ -53,6 +53,19 @@ def remove():
             return
     print(f"{name} was not found!")
 
+def find_student():
+    name=input("Enter student's name: ")
+    for student in students:
+        if name==student.name:
+             print(f'''
+        Name: {student.name},
+        Age: {student.age},
+        Grades: {student.grades},
+        Grades average: {student.get_average()}
+        ''')
+             
+        else:
+            print('Такого студента не существует')
 def print_menu():
     print("Student Analysis Centre ")
     print("  1. Add Student ")
@@ -63,6 +76,7 @@ def print_menu():
     print("  6. Numpy analysis ")
     print("  7. Pandas analysis ")
     print("  8. Display the menu ")
+    print("  9. Find student ")
     print("  0. Exit ")
 
 def main():
@@ -89,6 +103,8 @@ def main():
             pandas_analysis(students)
         elif choice == "8":
             print_menu()
+        elif choice == "9":
+            find_student()
         elif choice == "0":
             print("\nBye! ")
             break
