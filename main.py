@@ -66,6 +66,7 @@ def find_student():
              
         else:
             print('Такого студента не существует')
+
 def print_menu():
     print("Student Analysis Centre ")
     print("  1. Add Student ")
