@@ -28,6 +28,7 @@ def add_student():
     student = Student(name, age, grades)
     students.append(student)
     print(f"{student.name} Had been added to the dataset!")
+    return save(students)
 
 def show_all():
     if not students:
@@ -50,8 +51,9 @@ def remove():
         if s.name == name:
             students.remove(s)
             print(f"{s.name} has been removed!")
-            return
-    print(f"{name} was not found!")
+        else:
+            print(f"{name} was not found!")
+    return save(students)
 
 def find_student():
     name=input("Enter student's name: ")
@@ -82,6 +84,8 @@ def print_menu():
 
 def main():
     print_menu()
+    loaded = load()
+    students.extend(loaded)
     while True:
         choice = input("Choose a point ").strip()
  
@@ -95,7 +99,6 @@ def main():
             save(students)
         elif choice == "5":
             loaded = load()
-            students.clear()
             students.extend(loaded)
         elif choice == "6":
             avg(students)
